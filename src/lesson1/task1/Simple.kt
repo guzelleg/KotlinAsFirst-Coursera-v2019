@@ -2,6 +2,8 @@
 
 package lesson1.task1
 
+import org.junit.Assert.assertEquals
+import org.junit.Test
 import kotlin.math.*
 
 /**
@@ -23,7 +25,7 @@ fun sqr(x: Double) = x * x
  *
  * Вычисление дискриминанта квадратного уравнения
  */
-fun discriminant(a: Double, b: Double, c: Double) = sqr(b) - 4 * a * c
+fun discriminant(a: Double, b: Double, c: Double) = sqrt(b) - 4 * a * c
 
 /**
  * Пример
@@ -76,7 +78,7 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double = Math.PI/180.0 * (deg + min/60.0 + sec/3600.0)
 
 /**
  * Тривиальная
@@ -92,7 +94,7 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
  * Пользователь задает целое число, большее 100 (например, 3801).
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
-fun thirdDigit(number: Int): Int = TODO()
+fun thirdDigit(number: Int): Int = number/100%10
 
 /**
  * Простая
@@ -119,3 +121,8 @@ fun accountInThreeYears(initial: Int, percent: Int): Double = TODO()
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
 fun numberRevert(number: Int): Int = TODO()
+
+@Test
+private fun check(){
+    assertEquals(4, sqr(2))
+}
